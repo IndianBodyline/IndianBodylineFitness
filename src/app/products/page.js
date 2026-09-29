@@ -1,12 +1,16 @@
 'use client';
-import React, { useState } from 'react';
-import { ShoppingCart, Heart, ShieldCheck, Star } from 'lucide-react';
+import React, { useState, Suspense } from 'react';
+import { ShoppingCart, Heart, ShieldCheck, Star, MessageCircle } from 'lucide-react';
 import { products } from '../../data/mockData';
 import { useCart } from '../../context/CartContext';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
-export default function ProductsPage() {
+function ProductsContent() {
   const { addToCart } = useCart();
+  const searchParams = useSearchParams();
+  const categoryFilter = searchParams.get('category');
+  
   const [likedProducts, setLikedProducts] = useState({});
 
   const toggleLike = (productId) => {
@@ -14,6 +18,12 @@ export default function ProductsPage() {
       ...prev,
       [productId]: !prev[productId]
     }));
+  };
+
+  const whatsappEnquiry = (product) => {
+    const msg = `Hello! I'm interested in *${product.name}* (${product.id}) priced at ₹${product.price.toLocaleString('en-IN')}. Please share more details.`;
+    const url = `https://wa.me/919258888252?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -29,13 +39,13 @@ export default function ProductsPage() {
         }}
       >
         <div className="section-subtitle" style={{ color: 'var(--primary-color)', justifyContent: 'center' }}>OUR RANGE</div>
-        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>All <span style={{ color: 'var(--primary-color)' }}>Products</span></h1>
+        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>{categoryFilter || 'All'} <span style={{ color: 'var(--primary-color)' }}>Products</span></h1>
         <p style={{ color: '#e0e0e0', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>Browse our complete collection of commercial and home fitness equipment.</p>
       </div>
       
       <div className="container" style={{ paddingBottom: '40px' }}>
         <div className="product-grid">
-          {products.map(product => (
+          {(categoryFilter ? products.filter(p => p.category === categoryFilter) : products).map(product => (
             <div key={product.id} className="product-card">
               <div className="product-badge">{product.id}</div>
               <button className="heart-btn" onClick={() => toggleLike(product.id)}>
@@ -61,6 +71,12 @@ export default function ProductsPage() {
                 <button className="btn-add-cart" onClick={() => addToCart(product)} style={{ width: '100%' }}>
                   <ShoppingCart size={16} /> Add to Cart
                 </button>
+                <button
+                  onClick={() => whatsappEnquiry(product)}
+                  className="btn-whatsapp-enquiry"
+                >
+                  <MessageCircle size={14} /> WhatsApp Enquiry
+                </button>
               </div>
             </div>
           ))}
@@ -84,5 +100,13 @@ export default function ProductsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '100px', textAlign: 'center' }}>Loading products...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }

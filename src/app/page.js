@@ -160,14 +160,14 @@ export default function Home() {
           
           <div className="category-grid">
             {categories.map(cat => (
-              <div key={cat.id} className="category-card">
+              <Link href={`/products?category=${encodeURIComponent(cat.name)}`} key={cat.id} className="category-card">
                 <img src={cat.image} alt={cat.name} className="category-img-placeholder" style={{ objectFit: 'cover' }} />
                 <div className="category-info">
                   <div className="category-icon"><Dumbbell size={20} /></div>
                   <h3 className="category-name">{cat.name}</h3>
                   <p className="category-desc">{cat.desc}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -199,13 +199,13 @@ export default function Home() {
                     <h3 className="product-name">{product.name}</h3>
                   </Link>
                   <p className="product-category">{product.category}</p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '5px 0 12px' }}>
-                    <p style={{ fontWeight: 'bold', fontSize: '14px', margin: 0 }}>₹{product.price.toLocaleString('en-IN')}</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '10px', color: 'var(--text-muted-dark)' }}>
+                  <div className="product-card-price-row">
+                    <p className="product-card-price">₹{product.price.toLocaleString('en-IN')}</p>
+                    <div className="product-card-rating">
                       <Star size={10} fill="#FCE300" color="#FCE300" />
-                      <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>4.8</span>
+                      <span className="rating-score">4.8</span>
                       <span>(124)</span>
-                      <span style={{ backgroundColor: 'var(--bg-dark)', color: 'var(--text-light)', padding: '2px 5px', borderRadius: '4px', fontSize: '8px', fontWeight: 'bold', marginLeft: '2px' }}>PRO</span>
+                      <span className="rating-pro">PRO</span>
                     </div>
                   </div>
                   <button className="btn-add-cart" onClick={() => addToCart(product)}><ShoppingCart size={16} /> Add to Cart</button>
