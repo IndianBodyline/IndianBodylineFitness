@@ -1,6 +1,8 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollObserver from '../components/ScrollObserver';
+import WhatsAppFloat from '../components/WhatsAppFloat';
+import Preloader from '../components/Preloader';
 import { CartProvider } from '../context/CartContext';
 import './globals.css';
 
@@ -14,12 +16,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <CartProvider>
+          <Preloader />
           <ScrollObserver />
           <Header />
           <main className="main-container">
             {children}
           </main>
           <Footer />
+          <WhatsAppFloat />
         </CartProvider>
       </body>
     </html>

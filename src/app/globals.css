@@ -53,13 +53,13 @@ button {
 
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0 40px;
 }
 
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .section-subtitle {
@@ -216,22 +216,30 @@ button {
   position: relative;
 }
 
+.nav-link.active, .nav-link:hover {
+  color: var(--text-light); /* Kept it white to match typical minimalist headers, or let's make it yellow if preferred. I'll stick to yellow as in original. */
+}
+
 .nav-link.active {
   color: var(--primary-color);
 }
+.nav-link:hover {
+  color: var(--primary-color);
+}
 
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0;
   height: 2px;
   background-color: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-  color: var(--primary-color);
+.nav-link.active::after, .nav-link:hover::after {
+  width: 100%;
 }
 
 .header-actions {
@@ -2024,3 +2032,4 @@ button {
     padding: 4px 8px !important;
   }
 }
+

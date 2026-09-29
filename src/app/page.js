@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { ShoppingCart, Search, User, CheckCircle, Package, Truck, Headphones, ChevronRight, Star, Heart, ArrowRight, ShieldCheck, Dumbbell, Mail, Phone, MapPin, ChevronLeft } from 'lucide-react';
+import { ShoppingCart, Search, User, CheckCircle, Package, Truck, Headphones, ChevronRight, Star, ArrowRight, ShieldCheck, Dumbbell, Mail, Phone, MapPin, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import { products, categories, testimonials, blogs, siteConfig } from '../data/mockData';
 import { useCart } from '../context/CartContext';
@@ -8,7 +8,7 @@ import { useCart } from '../context/CartContext';
 export default function Home() {
   const { addToCart } = useCart();
   const [galleryIndex, setGalleryIndex] = React.useState(0);
-  const [likedProducts, setLikedProducts] = React.useState({});
+
   const [itemsPerView, setItemsPerView] = React.useState(4);
   const [testisPerView, setTestisPerView] = React.useState(3);
 
@@ -34,12 +34,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const toggleLike = (productId) => {
-    setLikedProducts(prev => ({
-      ...prev,
-      [productId]: !prev[productId]
-    }));
-  };
+
   
   const galleryItems = siteConfig.exploreGallery.categories;
   const galleryMaxIndex = Math.max(0, galleryItems.length - itemsPerView);
@@ -188,9 +183,7 @@ export default function Home() {
             {products.slice(0, 4).map(product => (
               <div key={product.id} className="product-card">
                 <div className="product-badge">{product.id}</div>
-                <button className="heart-btn" onClick={() => toggleLike(product.id)}>
-                  <Heart size={18} fill={likedProducts[product.id] ? "#FCE300" : "none"} color={likedProducts[product.id] ? "#FCE300" : "currentColor"} />
-                </button>
+
                 <Link href={`/product/${product.id}`} style={{ display: 'block', overflow: 'hidden' }}>
                   <img src={product.image} alt={product.name} className="product-img-placeholder" style={{ objectFit: 'cover' }} />
                 </Link>
@@ -200,15 +193,12 @@ export default function Home() {
                   </Link>
                   <p className="product-category">{product.category}</p>
                   <div className="product-card-price-row">
-                    <p className="product-card-price">₹{product.price.toLocaleString('en-IN')}</p>
-                    <div className="product-card-rating">
-                      <Star size={10} fill="#FCE300" color="#FCE300" />
-                      <span className="rating-score">4.8</span>
-                      <span>(124)</span>
-                      <span className="rating-pro">PRO</span>
+                    <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                      <span style={{ background: '#e8f5e9', color: '#2e7d32', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><CheckCircle size={10} /> In Stock</span>
+                      <span style={{ background: '#e3f2fd', color: '#1565c0', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><Truck size={10} /> Free Delivery</span>
                     </div>
                   </div>
-                  <button className="btn-add-cart" onClick={() => addToCart(product)}><ShoppingCart size={16} /> Add to Cart</button>
+
                 </div>
               </div>
             ))}
@@ -348,7 +338,7 @@ export default function Home() {
           </div>
           
           <div className="blogs-grid">
-            {blogs.map(blog => (
+            {blogs.slice(0, 4).map(blog => (
               <div key={blog.id} className="blog-card">
                 <div className="blog-img-wrapper">
                   <img src={blog.image} alt={blog.title} className="blog-img" />

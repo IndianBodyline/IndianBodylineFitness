@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, Suspense } from 'react';
-import { ShoppingCart, Heart, ShieldCheck, Star, MessageCircle } from 'lucide-react';
+import { ShoppingCart, CheckCircle, ShieldCheck, Truck, MessageCircle } from 'lucide-react';
 import { products } from '../../data/mockData';
 import { useCart } from '../../context/CartContext';
 import Link from 'next/link';
@@ -10,21 +10,37 @@ function ProductsContent() {
   const { addToCart } = useCart();
   const searchParams = useSearchParams();
   const categoryFilter = searchParams.get('category');
+  const searchFilter = searchParams.get('search');
   
-  const [likedProducts, setLikedProducts] = useState({});
-
-  const toggleLike = (productId) => {
-    setLikedProducts(prev => ({
-      ...prev,
-      [productId]: !prev[productId]
-    }));
-  };
 
   const whatsappEnquiry = (product) => {
     const msg = `Hello! I'm interested in *${product.name}* (${product.id}) priced at ₹${product.price.toLocaleString('en-IN')}. Please share more details.`;
     const url = `https://wa.me/919258888252?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   };
+
+  // Filter logic
+  let displayedProducts = products;
+  if (categoryFilter) {
+    displayedProducts = displayedProducts.filter(p => p.category === categoryFilter);
+  }
+  if (searchFilter) {
+    const searchWords = searchFilter.toLowerCase().split(' ').filter(w => w.trim() !== '');
+    displayedProducts = displayedProducts.filter(p => {
+      const name = p.name.toLowerCase();
+      const id = p.id.toLowerCase();
+      const cat = p.category.toLowerCase();
+      
+      return searchWords.some(word => 
+        name.includes(word) || id.includes(word) || cat.includes(word)
+      );
+    });
+  }
+
+  // Determine Title
+  let title = 'All Products';
+  if (searchFilter) title = `Search: "${searchFilter}"`;
+  else if (categoryFilter) title = `${categoryFilter} Products`;
 
   return (
     <div style={{ minHeight: '60vh' }}>
@@ -39,18 +55,16 @@ function ProductsContent() {
         }}
       >
         <div className="section-subtitle" style={{ color: 'var(--primary-color)', justifyContent: 'center' }}>OUR RANGE</div>
-        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>{categoryFilter || 'All'} <span style={{ color: 'var(--primary-color)' }}>Products</span></h1>
+        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>{title}</h1>
         <p style={{ color: '#e0e0e0', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>Browse our complete collection of commercial and home fitness equipment.</p>
       </div>
       
       <div className="container" style={{ paddingBottom: '40px' }}>
         <div className="product-grid">
-          {(categoryFilter ? products.filter(p => p.category === categoryFilter) : products).map(product => (
+          {displayedProducts.length > 0 ? displayedProducts.map(product => (
             <div key={product.id} className="product-card">
               <div className="product-badge">{product.id}</div>
-              <button className="heart-btn" onClick={() => toggleLike(product.id)}>
-                <Heart size={18} fill={likedProducts[product.id] ? "#FCE300" : "none"} color={likedProducts[product.id] ? "#FCE300" : "currentColor"} />
-              </button>
+
               <Link href={`/product/${product.id}`} style={{ display: 'block', overflow: 'hidden' }}>
                 <img src={product.image} alt={product.name} className="product-img-placeholder" style={{ objectFit: 'cover', transition: 'transform 0.5s ease', display: 'block' }} />
               </Link>
@@ -59,27 +73,18 @@ function ProductsContent() {
                   <h3 className="product-name">{product.name}</h3>
                 </Link>
                 <p className="product-category" style={{ fontSize: '13px', color: 'var(--text-muted-dark)', marginBottom: '15px' }}>{product.category}</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '5px 0 12px' }}>
-                  <p style={{ fontWeight: 'bold', fontSize: '14px', color: 'var(--text-dark)', margin: 0 }}>₹{product.price.toLocaleString('en-IN')}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '10px', color: 'var(--text-muted-dark)' }}>
-                    <Star size={10} fill="#FCE300" color="#FCE300" />
-                    <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>4.8</span>
-                    <span>(124)</span>
-                    <span style={{ backgroundColor: 'var(--bg-dark)', color: 'var(--text-light)', padding: '2px 5px', borderRadius: '4px', fontSize: '8px', fontWeight: 'bold', marginLeft: '2px' }}>PRO</span>
-                  </div>
+                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                  <span style={{ background: '#e8f5e9', color: '#2e7d32', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><CheckCircle size={10} /> In Stock</span>
+                  <span style={{ background: '#e3f2fd', color: '#1565c0', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><Truck size={10} /> Free Delivery</span>
                 </div>
-                <button className="btn-add-cart" onClick={() => addToCart(product)} style={{ width: '100%' }}>
-                  <ShoppingCart size={16} /> Add to Cart
-                </button>
-                <button
-                  onClick={() => whatsappEnquiry(product)}
-                  className="btn-whatsapp-enquiry"
-                >
-                  <MessageCircle size={14} /> WhatsApp Enquiry
-                </button>
               </div>
             </div>
-          ))}
+          )) : (
+            <div style={{ padding: '40px', textAlign: 'center', gridColumn: '1 / -1' }}>
+              <h3>No products found</h3>
+              <p>Try adjusting your search or category filter.</p>
+            </div>
+          )}
         </div>
         
         <div className="subscribe-container-inner" style={{ marginTop: '40px' }}>
