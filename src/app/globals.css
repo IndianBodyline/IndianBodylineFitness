@@ -540,6 +540,12 @@ button {
   display: block;
 }
 
+@media (min-width: 992px) {
+  .product-img-placeholder {
+    height: 260px;
+  }
+}
+
 .product-info {
   padding: 12px;
 }

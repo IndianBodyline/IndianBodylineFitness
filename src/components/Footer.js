@@ -52,7 +52,7 @@ export default function Footer() {
             <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', alignItems: 'center', gap: '50px', flexWrap: 'wrap' }}>
               {/* Left Side Text */}
               <div style={{ flex: 1, minWidth: '300px' }}>
-                <h2 style={{ fontSize: '84px', color: '#fff', fontWeight: 900, margin: '0', lineHeight: 0.9, letterSpacing: '-2px', textTransform: 'uppercase' }}>
+                <h2 style={{ fontSize: 'clamp(48px, 12vw, 84px)', color: '#fff', fontWeight: 900, margin: '0', lineHeight: 0.9, letterSpacing: '-2px', textTransform: 'uppercase' }}>
                   Defy <br/><span style={{ color: 'transparent', WebkitTextStroke: '2px var(--primary-color)' }}>Limits.</span>
                 </h2>
                 <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary-color)', margin: '35px 0' }}></div>

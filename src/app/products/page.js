@@ -49,7 +49,7 @@ function ProductsContent() {
         <div className="product-grid">
           {displayedProducts.length > 0 ? displayedProducts.map(product => (
             <div key={product.id} className="product-card">
-              <div className="product-badge">{product.id}</div>
+
 
               <Link href={`/product/${product.id}`} style={{ display: 'block', overflow: 'hidden' }}>
                 <img src={product.image} alt={product.name} className="product-img-placeholder" style={{ objectFit: 'cover', transition: 'transform 0.5s ease', display: 'block' }} />
@@ -61,7 +61,7 @@ function ProductsContent() {
                 <p className="product-category" style={{ fontSize: '13px', color: 'var(--text-muted-dark)', marginBottom: '15px' }}>{product.category}</p>
                 <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '4px' }}>
                   <span style={{ background: '#e8f5e9', color: '#2e7d32', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><CheckCircle size={10} /> In Stock</span>
-                  <span style={{ background: '#e3f2fd', color: '#1565c0', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><Truck size={10} /> Free Delivery</span>
+
                 </div>
               </div>
             </div>

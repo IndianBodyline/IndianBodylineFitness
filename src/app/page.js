@@ -182,7 +182,7 @@ export default function Home() {
           <div className="product-grid">
             {products.slice(0, 4).map(product => (
               <div key={product.id} className="product-card">
-                <div className="product-badge">{product.id}</div>
+
 
                 <Link href={`/product/${product.id}`} style={{ display: 'block', overflow: 'hidden' }}>
                   <img src={product.image} alt={product.name} className="product-img-placeholder" style={{ objectFit: 'cover' }} />
@@ -195,7 +195,7 @@ export default function Home() {
                   <div className="product-card-price-row">
                     <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
                       <span style={{ background: '#e8f5e9', color: '#2e7d32', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><CheckCircle size={10} /> In Stock</span>
-                      <span style={{ background: '#e3f2fd', color: '#1565c0', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><Truck size={10} /> Free Delivery</span>
+
                     </div>
                   </div>
 

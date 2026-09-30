@@ -55,8 +55,8 @@ export default function CategoriesPage() {
             </div>
           </div>
           <div className="subscribe-right-text" style={{ textAlign: 'left', borderLeft: '3px solid var(--primary-color)', paddingLeft: '25px' }}>
-            <span style={{ fontSize: '16px', color: '#fff', fontWeight: 'bold' }}>Call us directly</span>
-            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px' }}>+91 9258888252</span>
+            <span style={{ fontSize: '16px', color: '#fff', fontWeight: 'bold', display: 'block' }}>Call us directly</span>
+            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px', display: 'block', whiteSpace: 'nowrap' }}>+91 9258888252</span>
           </div>
         </div>
       </div>

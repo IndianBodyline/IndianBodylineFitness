@@ -51,7 +51,7 @@ export default function ProductDetailsPage({ params }) {
             <p style={{ color: '#888', fontSize: '12px', marginBottom: '15px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>Product ID: {product.id}</p>
             
             <div style={{ marginBottom: '20px' }}>
-              <span className="product-stock-badge" style={{ display: 'inline-block' }}>IN STOCK</span>
+              <span className="product-stock-badge" style={{ display: 'inline-flex' }}>IN STOCK</span>
             </div>
             
             <p style={{ color: '#555', fontSize: '15px', lineHeight: '1.6', marginBottom: '25px' }}>
@@ -168,7 +168,7 @@ export default function ProductDetailsPage({ params }) {
           <div className="product-grid">
             {relatedProducts.map(relProduct => (
               <div key={relProduct.id} className="product-card">
-                <div className="product-badge">{relProduct.id}</div>
+
 
                 <Link href={`/product/${relProduct.id}`} style={{ display: 'block', overflow: 'hidden' }}>
                   <img src={relProduct.image} alt={relProduct.name} className="product-img-placeholder" style={{ objectFit: 'cover', transition: 'transform 0.5s ease', display: 'block' }} />
@@ -181,7 +181,7 @@ export default function ProductDetailsPage({ params }) {
                   <div className="product-card-price-row">
                     <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
                       <span style={{ background: '#e8f5e9', color: '#2e7d32', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><CheckCircle size={10} /> In Stock</span>
-                      <span style={{ background: '#e3f2fd', color: '#1565c0', fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '20px', letterSpacing: '0.3px', display: 'flex', alignItems: 'center', gap: '3px' }}><Truck size={10} /> Free Delivery</span>
+
                     </div>
                   </div>
 
