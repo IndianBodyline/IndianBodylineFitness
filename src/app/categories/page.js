@@ -24,7 +24,7 @@ export default function CategoriesPage() {
       <div className="container" style={{ paddingBottom: '40px' }}>
         <div className="category-grid">
           {categories.map((cat) => (
-            <div key={cat.id} className="category-card" style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', paddingBottom: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', border: 'none', borderRadius: '12px', height: '100%', maxWidth: '90%', margin: '0 auto' }}>
+            <div key={cat.id} className="category-card" style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', paddingBottom: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', border: 'none', borderRadius: '12px', height: '100%' }}>
               <div style={{ overflow: 'hidden' }}>
                 <img src={cat.image} alt={cat.name} className="category-img-placeholder" style={{ objectFit: 'cover', transition: 'transform 0.5s ease', display: 'block', width: '100%', height: '160px' }} />
               </div>
@@ -32,10 +32,11 @@ export default function CategoriesPage() {
                 <Dumbbell size={16} color="var(--text-dark)" />
               </div>
               <h3 className="category-name" style={{ padding: '0 10px', fontSize: '16px', fontWeight: '800' }}>{cat.name}</h3>
-              <p className="category-desc" style={{ marginBottom: '15px', padding: '0 10px', flexGrow: 1, fontSize: '12px', color: '#777' }}>{cat.desc}</p>
+              <p className="category-desc" style={{ marginBottom: '15px', padding: '0 10px', flexGrow: 1, fontSize: '12px', color: '#777', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>{cat.desc}</p>
               <div style={{ padding: '0 15px', marginTop: 'auto' }}>
-                <Link href="/products" style={{ display: 'block', textDecoration: 'none' }}>
+                <Link href={`/products?category=${encodeURIComponent(cat.name)}`} style={{ display: 'block', textDecoration: 'none' }}>
                   <button className="btn btn-outline" style={{ color: 'var(--primary-color)', borderColor: 'var(--primary-color)', borderRadius: '50px', padding: '6px 16px', fontSize: '12px', fontWeight: 'bold', width: '100%', cursor: 'pointer' }}>Browse Category</button>
+
                 </Link>
               </div>
             </div>

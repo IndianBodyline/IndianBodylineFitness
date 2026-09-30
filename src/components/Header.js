@@ -112,6 +112,7 @@ function RollingNavLink({ href, children, isActive, onClick }) {
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
@@ -132,7 +133,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container header-container">
+      <div className={`container header-container ${isSearchFocused ? 'search-active' : ''}`}>
         <Link href="/" className="logo">
           <div className="logo-icon">{siteConfig.logo.icon}</div>
           <div className="logo-text">
@@ -155,43 +156,22 @@ export default function Header() {
         <div className="header-actions">
           {/* Inline Search Bar */}
             <form
+              className="header-search-form"
               onSubmit={handleSearch}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                background: 'rgba(0, 0, 0, 0.3)',
-                borderRadius: '6px',
-                padding: '0 14px',
-                gap: '10px',
-                height: '38px',
-                transition: 'box-shadow 0.2s ease',
-              }}
-              onFocus={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 0 1px var(--primary-color)';
-              }}
-              onBlur={(e) => {
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
               <Search size={15} color="rgba(255,255,255,0.4)" />
               <input
                 type="text"
+                className="header-search-input"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
                     handleSearch(e);
                   }
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  outline: 'none',
-                  color: '#ffffff',
-                  fontSize: '14px',
-                  width: '200px',
-                  fontFamily: 'inherit',
                 }}
               />
             </form>

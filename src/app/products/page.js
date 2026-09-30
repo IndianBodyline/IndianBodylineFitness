@@ -44,22 +44,8 @@ function ProductsContent() {
 
   return (
     <div style={{ minHeight: '60vh' }}>
-      <div 
-        className="page-banner"
-        style={{
-          background: `linear-gradient(rgba(18, 20, 24, 0.85), rgba(18, 20, 24, 0.95)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover`,
-          padding: '60px 20px',
-          marginBottom: '60px',
-          color: 'var(--text-light)',
-          textAlign: 'center'
-        }}
-      >
-        <div className="section-subtitle" style={{ color: 'var(--primary-color)', justifyContent: 'center' }}>OUR RANGE</div>
-        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>{title}</h1>
-        <p style={{ color: '#e0e0e0', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>Browse our complete collection of commercial and home fitness equipment.</p>
-      </div>
-      
-      <div className="container" style={{ paddingBottom: '40px' }}>
+      <div className="container" style={{ paddingBottom: '40px', paddingTop: '40px' }}>
+        <h1 className="section-title" style={{ color: 'var(--text-dark)', marginBottom: '30px', textAlign: 'center' }}>{title}</h1>
         <div className="product-grid">
           {displayedProducts.length > 0 ? displayedProducts.map(product => (
             <div key={product.id} className="product-card">
