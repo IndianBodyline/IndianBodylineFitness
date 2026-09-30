@@ -16,7 +16,6 @@ export default function ScrollObserver() {
         '.category-card',
         '.product-card',
         '.subscribe-container-inner',
-        '.container > div',
         '.footer-column'
       ].join(', ');
 
@@ -41,8 +40,8 @@ export default function ScrollObserver() {
         });
       }, {
         root: null,
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Slightly trigger before it comes fully into view
+        threshold: 0.05, // Trigger when 5% of the element is visible
+        rootMargin: '0px 0px 50px 0px' // Positive margin triggers animation 50px BEFORE it enters viewport
       });
 
       // 4. Observe all elements with the class
