@@ -92,11 +92,7 @@ export default function Footer() {
           <div className="container footer-container">
             <div className="footer-col">
               <Link href="/" className="footer-logo">
-                <div className="logo-icon">{siteConfig.logo.icon}</div>
-                <div className="logo-text">
-                  <span className="logo-title">{siteConfig.logo.titleMain} <span className="logo-highlight">{siteConfig.logo.titleHighlight}</span></span>
-                  <span className="logo-subtitle">{siteConfig.logo.subtitle}</span>
-                </div>
+                <img src="/logo.jpeg" alt="Indian Bodylines Logo" style={{ width: '120px', height: '80px', objectFit: 'contain', marginBottom: '15px' }} />
               </Link>
               <p className="footer-slogan">Stronger Bodies. Healthier Tomorrow.</p>
             </div>

@@ -9,6 +9,10 @@ import './globals.css';
 export const metadata = {
   title: 'Indian Bodylines Fitness Equipment',
   description: 'High-quality gym equipment for commercial gyms, home gyms, outdoor parks and fitness centers.',
+  icons: {
+    icon: '/logo.jpeg',
+    apple: '/logo.jpeg',
+  },
 }
 
 export default function RootLayout({ children }) {

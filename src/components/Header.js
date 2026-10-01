@@ -135,11 +135,7 @@ export default function Header() {
     <header className="header">
       <div className={`container header-container ${isSearchFocused ? 'search-active' : ''}`}>
         <Link href="/" className="logo">
-          <div className="logo-icon">{siteConfig.logo.icon}</div>
-          <div className="logo-text">
-            <span className="logo-title">{siteConfig.logo.titleMain} <span className="logo-highlight">{siteConfig.logo.titleHighlight}</span></span>
-            <span className="logo-subtitle">{siteConfig.logo.subtitle}</span>
-          </div>
+          <img src="/logo.jpeg" alt="Indian Bodylines Logo" style={{ width: '120px', height: '80px', objectFit: 'contain' }} />
         </Link>
         <nav className={`nav ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
           {siteConfig.navLinks.map((link) => (
