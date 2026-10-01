@@ -135,7 +135,7 @@ export default function Header() {
     <header className="header">
       <div className={`container header-container ${isSearchFocused ? 'search-active' : ''}`}>
         <Link href="/" className="logo">
-          <img src="/logo.jpeg" alt="Indian Bodylines Logo" style={{ width: '120px', height: '80px', objectFit: 'contain' }} />
+          <img src="/logo.jpeg" alt="Indian Bodylines Logo" style={{ width: 'auto', height: '40px', objectFit: 'contain' }} />
         </Link>
         <nav className={`nav ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
           {siteConfig.navLinks.map((link) => (
