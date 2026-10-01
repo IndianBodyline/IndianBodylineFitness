@@ -10,7 +10,7 @@ export default function ProductDetailsPage({ params }) {
   const whatsappEnquiry = (product) => {
     const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
     const msg = `Hello! I'm interested in *${product.name}* (${product.id}).\n\nProduct Link: ${pageUrl}\n\nPlease share more details and pricing.`;
-    const url = `https://wa.me/919258888252?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/919837404124?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   };
   
@@ -139,23 +139,28 @@ export default function ProductDetailsPage({ params }) {
             </div>
             
             <div className="product-desc-right">
-              <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '20px', color: 'var(--text-dark)' }}>Specifications</h3>
+              <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '20px', color: 'var(--text-dark)' }}>Delivery & Installation</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
-                  <span style={{ color: 'var(--text-muted-dark)' }}>Dimensions</span>
-                  <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>120 x 80 x 150 cm</span>
+                <li style={{ display: 'flex', gap: '15px', padding: '15px 0', borderBottom: '1px solid #f0f0f0', alignItems: 'flex-start' }}>
+                  <Truck size={24} color="var(--primary-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <h4 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '4px', color: 'var(--text-dark)' }}>Pan India Delivery</h4>
+                    <p style={{ margin: 0, color: 'var(--text-muted-dark)', fontSize: '13px', lineHeight: '1.5' }}>Safe and secure transportation of heavy fitness equipment to anywhere in India.</p>
+                  </div>
                 </li>
-                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
-                  <span style={{ color: 'var(--text-muted-dark)' }}>Weight Capacity</span>
-                  <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>200 kg</span>
+                <li style={{ display: 'flex', gap: '15px', padding: '15px 0', borderBottom: '1px solid #f0f0f0', alignItems: 'flex-start' }}>
+                  <ShieldCheck size={24} color="var(--primary-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <h4 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '4px', color: 'var(--text-dark)' }}>Professional Setup</h4>
+                    <p style={{ margin: 0, color: 'var(--text-muted-dark)', fontSize: '13px', lineHeight: '1.5' }}>Our trained technicians ensure correct assembly and perfect biomechanical alignment.</p>
+                  </div>
                 </li>
-                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
-                  <span style={{ color: 'var(--text-muted-dark)' }}>Frame Material</span>
-                  <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>Heavy-duty Steel</span>
-                </li>
-                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
-                  <span style={{ color: 'var(--text-muted-dark)' }}>Warranty</span>
-                  <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>1 Year Commercial</span>
+                <li style={{ display: 'flex', gap: '15px', padding: '15px 0', borderBottom: '1px solid #f0f0f0', alignItems: 'flex-start' }}>
+                  <CheckCircle size={24} color="var(--primary-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <h4 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '4px', color: 'var(--text-dark)' }}>1 Year Commercial Warranty</h4>
+                    <p style={{ margin: 0, color: 'var(--text-muted-dark)', fontSize: '13px', lineHeight: '1.5' }}>Comprehensive structural and functional coverage for complete peace of mind.</p>
+                  </div>
                 </li>
               </ul>
             </div>

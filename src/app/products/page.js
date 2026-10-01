@@ -15,7 +15,7 @@ function ProductsContent() {
 
   const whatsappEnquiry = (product) => {
     const msg = `Hello! I'm interested in *${product.name}* (${product.id}) priced at ₹${product.price.toLocaleString('en-IN')}. Please share more details.`;
-    const url = `https://wa.me/919258888252?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/919837404124?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   };
 
@@ -86,7 +86,7 @@ function ProductsContent() {
           </div>
           <div className="subscribe-right-text" style={{ textAlign: 'left', borderLeft: '3px solid var(--primary-color)', paddingLeft: '25px' }}>
             <span style={{ fontSize: '16px', color: '#fff', fontWeight: 'bold' }}>Call us directly</span>
-            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px' }}>+91 9258888252</span>
+            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px' }}>+91 98374 04124</span>
           </div>
         </div>
       </div>

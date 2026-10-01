@@ -40,21 +40,21 @@ export default function ContactPage() {
                   <div style={{ padding: '14px', background: 'var(--bg-dark)', color: 'var(--primary-color)', borderRadius: '50%', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', flexShrink: 0 }}><Phone size={18}/></div>
                   <div>
                     <strong style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', color: '#888', display: 'block', marginBottom: '3px' }}>Call Us</strong>
-                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>+91 9258888252</span>
+                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>+91 98374 04124</span>
                   </div>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
                   <div style={{ padding: '14px', background: 'var(--bg-dark)', color: 'var(--primary-color)', borderRadius: '50%', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', flexShrink: 0 }}><Mail size={18}/></div>
                   <div>
                     <strong style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', color: '#888', display: 'block', marginBottom: '3px' }}>Email Us</strong>
-                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>indianbodylines@gmail.com</span>
+                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>bodylineindian@gmail.com</span>
                   </div>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                   <div style={{ padding: '14px', background: 'var(--bg-dark)', color: 'var(--primary-color)', borderRadius: '50%', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', flexShrink: 0 }}><MapPin size={18}/></div>
                   <div>
                     <strong style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', color: '#888', display: 'block', marginBottom: '3px' }}>Location</strong>
-                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>Pan India — Delivering Everywhere</span>
+                    <span style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)' }}>D-57, Udyog Puram, Meerut</span>
                   </div>
                 </li>
               </ul>
@@ -96,55 +96,33 @@ export default function ContactPage() {
         </div>
 
 
-        {/* Our Locations Section */}
+        {/* Our Location Section */}
         <div style={{ marginBottom: '100px' }}>
-          <div className="section-subtitle" style={{ justifyContent: 'center' }}>GLOBAL PRESENCE</div>
-          <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>Our <span style={{ color: 'var(--primary-color)' }}>Locations</span></h2>
+          <div className="section-subtitle" style={{ justifyContent: 'center' }}>VISIT US</div>
+          <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>Our <span style={{ color: 'var(--primary-color)' }}>Facility</span></h2>
           
-          <div className="faq-grid-3">
-            {/* Headquarters */}
-            <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.06)', maxWidth: '90%', margin: '0 auto' }}>
-              <div style={{ height: '160px', background: `url('/gym-outdoor.jpg') center/cover` }}></div>
-              <div style={{ padding: '25px' }}>
-                <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px' }}>Headquarters</h4>
-                <p style={{ color: 'var(--text-muted-dark)', lineHeight: '1.5', marginBottom: '15px', fontSize: '14px' }}>
-                  123 Fitness Avenue, Industrial Estate, Phase 1,<br/>
-                  New Delhi, India 110020
-                </p>
-                <span style={{ color: 'var(--primary-color)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
-                  <MapPin size={16} /> Get Directions
-                </span>
+          <div style={{ display: 'flex', flexWrap: 'wrap', background: '#fff', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.08)', margin: '0 auto', maxWidth: '1000px' }}>
+            <div style={{ flex: '1 1 400px', minHeight: '350px', background: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover` }}></div>
+            <div style={{ flex: '1 1 400px', padding: '50px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <h3 style={{ fontSize: '28px', fontWeight: '900', marginBottom: '15px', color: 'var(--text-dark)' }}>Headquarters & Manufacturing</h3>
+              <p style={{ color: 'var(--text-muted-dark)', lineHeight: '1.7', marginBottom: '25px', fontSize: '15px' }}>
+                We proudly design, manufacture, and display our premium fitness equipment right here in Meerut. Come visit us to experience the quality firsthand and discuss your custom gym requirements with our experts.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '30px' }}>
+                <div style={{ padding: '12px', background: 'var(--bg-dark)', color: 'var(--primary-color)', borderRadius: '12px' }}>
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '16px', fontWeight: '800', marginBottom: '4px', color: 'var(--text-dark)' }}>Address</h4>
+                  <p style={{ margin: 0, color: 'var(--text-muted-dark)', fontSize: '14px', lineHeight: '1.5' }}>
+                    D-57, Udyog Puram, Opp. Power House Partapur,<br/>
+                    Meerut (U.P.) 250103 INDIA
+                  </p>
+                </div>
               </div>
-            </div>
-
-            {/* Manufacturing */}
-            <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.06)', maxWidth: '90%', margin: '0 auto' }}>
-              <div style={{ height: '160px', background: `url('/gym-strength.jpg') center/cover` }}></div>
-              <div style={{ padding: '25px' }}>
-                <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px' }}>Manufacturing Unit</h4>
-                <p style={{ color: 'var(--text-muted-dark)', lineHeight: '1.5', marginBottom: '15px', fontSize: '14px' }}>
-                  Plot 45-50, Heavy Industrial Area, Sector 5,<br/>
-                  Gurugram, Haryana 122016
-                </p>
-                <span style={{ color: 'var(--primary-color)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
-                  <MapPin size={16} /> Get Directions
-                </span>
-              </div>
-            </div>
-
-            {/* Showroom */}
-            <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.06)', maxWidth: '90%', margin: '0 auto' }}>
-              <div style={{ height: '160px', background: `url('/gym-cardio.jpg') center/cover` }}></div>
-              <div style={{ padding: '25px' }}>
-                <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px' }}>Experience Center</h4>
-                <p style={{ color: 'var(--text-muted-dark)', lineHeight: '1.5', marginBottom: '15px', fontSize: '14px' }}>
-                  Level 2, The Premium Mall, Vasant Kunj,<br/>
-                  New Delhi, India 110070
-                </p>
-                <span style={{ color: 'var(--primary-color)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
-                  <MapPin size={16} /> Get Directions
-                </span>
-              </div>
+              <a href="https://maps.google.com/maps?q=D-57,%20Udyog%20Puram,%20Opp.%20Power%20House%20Partapur,%20Meerut,%20UP,%20250103,%20India" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'var(--primary-color)', color: '#080909', padding: '14px 28px', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', width: 'fit-content' }}>
+                Get Directions
+              </a>
             </div>
           </div>
         </div>
@@ -152,7 +130,7 @@ export default function ContactPage() {
         {/* Map Section */}
         <div style={{ marginBottom: '100px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.08)', height: '450px' }}>
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.5400497554!2d77.0688975!3d28.5272181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sus!4v1714578912345!5m2!1sen!2sus" 
+            src="https://maps.google.com/maps?q=Indian+Bodylines+Sports+Company,+Meerut&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 
@@ -221,7 +199,7 @@ export default function ContactPage() {
           </div>
           <div className="subscribe-right-text" style={{ textAlign: 'left', borderLeft: '3px solid var(--primary-color)', paddingLeft: '25px' }}>
             <span style={{ fontSize: '16px', color: '#fff', fontWeight: 'bold' }}>Contact Sales</span>
-            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px' }}>+91 9258888252</span>
+            <span style={{ color: 'var(--primary-color)', fontSize: '28px', fontWeight: '900', marginTop: '5px' }}>+91 98374 04124</span>
           </div>
         </div>
 

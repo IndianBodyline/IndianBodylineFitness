@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../data/mockData';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -108,11 +108,18 @@ export default function Footer() {
               <h4 className="footer-heading">Get In Touch</h4>
               <ul className="footer-contact">
                 {siteConfig.footer.contact.map(c => (
-                  <li key={c.type}>
-                    {c.type === 'Phone' && <Phone size={16}/>}
-                    {c.type === 'Mail' && <Mail size={16}/>}
-                    {c.type === 'MapPin' && <MapPin size={16}/>}
-                    {' '}{c.value}
+                  <li key={c.type} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <div style={{ marginTop: '3px', color: 'var(--primary-color)' }}>
+                      {c.type === 'Phone' && <Phone size={16}/>}
+                      {c.type === 'Mail' && <Mail size={16}/>}
+                      {c.type === 'Globe' && <Globe size={16}/>}
+                      {c.type === 'MapPin' && <MapPin size={16}/>}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      {c.value.split(', ').map((line, i) => (
+                        <span key={i}>{line}</span>
+                      ))}
+                    </div>
                   </li>
                 ))}
               </ul>
