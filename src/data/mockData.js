@@ -183,7 +183,7 @@ export const products = [
   { id: 'IBS-175', name: 'Catalog Equipment 28', category: 'Strength Equipment', image: '/Indian Bodylines_page-0028.jpg', },
   { id: 'IBS-176', name: 'Shoulder Press', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183151.png',},
   { id: 'IBS-177', name: 'Vertical Chest Press ', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183223.png',},
-  { id: 'IBS-178', name: 'Dip / Chin Assit.', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183233.png',},
+  { id: 'IBS-178', name: 'Dip / Chin Assit.', category: 'Strength Equipment', image: '/Dip_chin_asset.png',},
   { id: 'IBS-179', name: 'Biceps & Triceps', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183244.png',},
   { id: 'IBS-180', name: 'Seated Rowing', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183259.png',},
   { id: 'IBS-181', name: 'Pec-Dec Fly ', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183317.png',},
