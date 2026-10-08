@@ -135,7 +135,6 @@ export default function Header() {
     <header className="header">
       <div className={`container header-container ${isSearchFocused ? 'search-active' : ''}`}>
         <Link href="/" className="logo">
-          // <img src="/logo.jpeg" alt="Indian Bodylines Logo" style={{ width: 'auto', height: '40px', objectFit: 'contain' }} />
 
   <img
   src="/logo.jpeg"
