@@ -2122,3 +2122,80 @@ button {
     margin-bottom: 20px;
   }
 }
+
+
+
+
+
+/* =========================================
+   PRODUCT DETAIL IMAGE - NO CROP FIX
+========================================= */
+
+.product-details-left {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+/* Normal img + Next.js Image */
+.product-details-left img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* If Next.js Image uses fill */
+.product-details-left > span,
+.product-details-left > div {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product-details-left > span img,
+.product-details-left > div img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .product-details-left {
+    min-height: 500px;
+    height: 500px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .product-details-left {
+    min-height: 350px;
+    height: 350px;
+    width: 100%;
+  }
+
+  .product-details-left img,
+  .product-details-left > span img,
+  .product-details-left > div img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .product-details-left {
+    min-height: 300px;
+    height: 300px;
+  }
+}
