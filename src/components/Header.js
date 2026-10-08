@@ -369,7 +369,7 @@ export default function Header() {
           }}
         >
           <img
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="Indian Bodylines Logo"
             style={{
               width: 'auto',
