@@ -33,14 +33,43 @@ export default function ProductDetailsPage({ params }) {
       <div className="container product-details-box">
         
         <div className="product-details-inner">
-          {/* Image Section */}
-          <div className="product-details-left" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.08)' }}>
-           <div className="product-details-left" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.08)' }}>
-  <img 
-    src={product.image} 
-    alt={product.name} 
-    style={{ width: '100%', height: '420px', objectFit: 'contain', display: 'block' }} 
+        {/* Image Section */}
+<div
+  className="product-details-left"
+  style={{
+    position: 'relative',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    boxShadow: '0 8px 30px rgba(0,0,0,0.08)'
+  }}
+>
+  <img
+    src={product.image}
+    alt={product.name}
+    style={{
+      width: '100%',
+      height: '420px',
+      objectFit: 'contain',
+      objectPosition: 'center',
+      display: 'block',
+      backgroundColor: '#fff'
+    }}
   />
+
+  <div
+    className="product-badge"
+    style={{
+      position: 'absolute',
+      top: '20px',
+      left: '20px',
+      fontSize: '14px',
+      padding: '8px 16px',
+      borderRadius: '8px'
+    }}
+  >
+    {product.category}
+  </div>
+</div>
             <div className="product-badge" style={{ position: 'absolute', top: '20px', left: '20px', fontSize: '14px', padding: '8px 16px', borderRadius: '8px' }}>{product.category}</div>
 
           </div>
