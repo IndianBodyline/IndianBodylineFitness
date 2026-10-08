@@ -62,11 +62,31 @@ function ProductsContent() {
   let title = 'All Products';
   if (searchFilter) title = `Search: "${searchFilter}"`;
   else if (categoryFilter) title = `${categoryFilter} Products`;
+  const titleWords = title.split(' ');
+  const titleLast = titleWords.pop();
+  const titleLead = titleWords.join(' ');
+  const bannerDesc = searchFilter || categoryFilter
+    ? `${displayedProducts.length} product${displayedProducts.length === 1 ? '' : 's'} found.`
+    : 'Premium gym equipment built for performance and durability.';
 
   return (
     <div style={{ minHeight: '60vh' }}>
-      <div className="container" style={{ paddingBottom: '40px', paddingTop: '40px' }}>
-        <h1 className="section-title" style={{ color: 'var(--text-dark)', marginBottom: '30px', textAlign: 'center' }}>{title}</h1>
+      <div
+        className="page-banner"
+        style={{
+          background: `linear-gradient(rgba(18, 20, 24, 0.8), rgba(18, 20, 24, 0.95)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop') center/cover`,
+          padding: '60px 20px',
+          marginBottom: '60px',
+          color: 'var(--text-light)',
+          textAlign: 'center'
+        }}
+      >
+        <div className="section-subtitle" style={{ color: 'var(--primary-color)', justifyContent: 'center' }}>{searchFilter ? 'SEARCH RESULTS' : 'OUR RANGE'}</div>
+        <h1 className="section-title" style={{ color: '#fff', marginBottom: '15px' }}>{titleLead} <span style={{ color: 'var(--primary-color)' }}>{titleLast}</span></h1>
+        <p style={{ color: '#e0e0e0', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>{bannerDesc}</p>
+      </div>
+
+      <div className="container" style={{ paddingBottom: '40px' }}>
         <div className="product-grid">
           {pagedProducts.length > 0 ? pagedProducts.map((product, index) => (
             <div key={product.id} className="product-card">
