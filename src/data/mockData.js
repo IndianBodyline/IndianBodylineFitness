@@ -79,8 +79,6 @@ export const siteConfig = {
 };
 
 export const products = [
-  { id: 'IBS-01', name: 'Leg Curl', category: 'Strength Equipment', image: '/prod-leg-curl.png', price: 125000, specs: ['2x4 Rectangle Pipe', '12 Gauge Pipe', 'Powder Coating Paint', '80kg MS Weight Stack'] },
-  { id: 'IBS-02', name: 'Shoulder Press', category: 'Strength Equipment', image: '/prod-shoulder-press.jpg', price: 135000, specs: ['2x4 Rectangle Pipe', '12 Gauge Pipe', 'Powder Coating Paint', '80kg MS Weight Stack'] },
   { id: 'IBS-04', name: 'Seated Rowing', category: 'Strength Equipment', image: '/prod-seated-rowing.png', price: 110000, specs: ['2x4 Rectangle Pipe', '12 Gauge Pipe', 'Powder Coating Paint', '80kg MS Weight Stack'] },
   { id: 'IBS-05', name: 'Lat Pull Down', category: 'Strength Equipment', image: '/prod-lat-pull-down.png', price: 120000, specs: ['2x4 Rectangle Pipe', '12 Gauge Pipe', 'Powder Coating Paint', '80kg MS Weight Stack'] },
   { id: 'IBS-06', name: 'Pec Dec Fly', category: 'Strength Equipment', image: '/prod-pec-dec-fly.png', price: 115000, specs: ['2x4 Rectangle Pipe', '12 Gauge Pipe', 'Powder Coating Paint', '80kg MS Weight Stack'] },
@@ -181,8 +179,6 @@ export const products = [
   { id: 'IBS-173', name: 'Catalog Equipment 26', category: 'Strength Equipment', image: '/Indian Bodylines_page-0026.jpg', },
   { id: 'IBS-174', name: 'Catalog Equipment 27', category: 'Strength Equipment', image: '/Indian Bodylines_page-0027.jpg',},
   { id: 'IBS-175', name: 'Catalog Equipment 28', category: 'Strength Equipment', image: '/Indian Bodylines_page-0028.jpg', },
-  { id: 'IBS-176', name: 'Shoulder Press', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183151.png',},
-  { id: 'IBS-177', name: 'Vertical Chest Press ', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 183223.png',},
   { id: 'IBS-178', name: 'Dip / Chin Assit.', category: 'Strength Equipment', image: '/Dip_chin_asset.png',},
   { id: 'IBS-179', name: 'Biceps & Triceps', category: 'Strength Equipment', image: '/Bicep_tricep.png',},
   { id: 'IBS-180', name: 'Seated Rowing', category: 'Strength Equipment', image: '/Seated_Rowing.png',},
@@ -197,7 +193,6 @@ export const products = [
   { id: 'IBS-189', name: 'Low Row', category: 'Strength Equipment', image: '/LOW ROW.png', },
   { id: 'IBS-190', name: 'Shoulder Press', category: 'Strength Equipment', image: '/shoulder press.png', },
   { id: 'IBS-191', name: 'Row Machine', category: 'Strength Equipment', image: '/row machine.png', },
-  { id: 'IBS-192', name: 'Lat Pull Down', category: 'Strength Equipment', image: '/late pull down.png',},
   { id: 'IBS-193', name: 'Super Bench', category: 'Strength Equipment', image: '/super bench.png', },
   { id: 'IBS-194', name: 'Dumbbell Rack', category: 'Strength Equipment', image: '/Dumbbel rack.png',},
   { id: 'IBS-195', name: 'Lat Pull Down ', category: 'Strength Equipment', image: '/late pull down2.png', },
@@ -248,7 +243,7 @@ export const products = [
   { id: 'IBS-240', name: 'Body Shaper The House', category: 'Strength Equipment', image: '/Body shaper the house.png',  },
   { id: 'IBS-241', name: 'Push & Pull Up Chair ', category: 'Strength Equipment', image: '/Push and pull up.png',  },
   { id: 'IBS-242', name: 'Air Swing ', category: 'Strength Equipment', image: '/air swing best.png',},
-  { id: 'IBS-243', name: 'Seated Chest Press ', category: 'Strength Equipment', image: '/air swing original.png', },
+  { id: 'IBS-243', name: 'Seated Chest Press ', category: 'Strength Equipment', image: '/chest_press.png', },
   { id: 'IBS-244', name: 'Cross Walker ', category: 'Strength Equipment', image: '/cross walker.png',},
   { id: 'IBS-245', name: 'AB Trainer ', category: 'Strength Equipment', image: '/ab trainer.png', price: 95000,  },
   { id: 'IBS-246', name: 'Leg Press', category: 'Strength Equipment', image: '/leg press.png', price: 95000,},
@@ -280,9 +275,8 @@ export const products = [
   { id: 'IBS-276', name: 'Hand Grip Wooden', category: 'Strength Equipment', image: '/Hand grip wooden.png', price: 95000, },
   { id: 'IBS-277', name: '4 Stetion Multi Gym', category: 'Strength Equipment', image: '/4 station multi gym.png', price: 95000,  },
   { id: 'IBS-278', name: '16 Stetion Multi Gym', category: 'Strength Equipment', image: '/16 station multi gym.png', price: 95000, },
-  { id: 'IBS-279', name: 'Home Gym', category: 'Strength Equipment', image: '/home gym.png', price: 95000, },
-  { id: 'IBS-281', name: 'Cross Fit', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 185141.png', price: 95000, },
-  { id: 'IBS-282', name: 'Cross Fit', category: 'Strength Equipment', image: '/Screenshot 2026-09-30 185158.png', price: 95000, },
+  { id: 'IBS-279', name: 'Home Gym', category: 'Strength Equipment', image: '/home gym newww.png', price: 95000, },
+  { id: 'IBS-281', name: 'Cross Fit', category: 'Strength Equipment', image: '/cross fit newww.png', price: 95000, },
 ];
 
 
