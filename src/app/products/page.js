@@ -4,14 +4,17 @@ import { ShoppingCart, CheckCircle, ShieldCheck, Truck, MessageCircle } from 'lu
 import { products } from '../../data/mockData';
 import { useCart } from '../../context/CartContext';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
+
+const PAGE_SIZE = 12;
 
 function ProductsContent() {
   const { addToCart } = useCart();
   const searchParams = useSearchParams();
   const categoryFilter = searchParams.get('category');
   const searchFilter = searchParams.get('search');
-  
+  const requestedPage = parseInt(searchParams.get('page'), 10) || 1;
 
   const whatsappEnquiry = (product) => {
     const msg = `Hello! I'm interested in *${product.name}* (${product.id}) priced at ₹${product.price.toLocaleString('en-IN')}. Please share more details.`;
@@ -37,6 +40,24 @@ function ProductsContent() {
     });
   }
 
+  // Pagination
+  const totalPages = Math.max(1, Math.ceil(displayedProducts.length / PAGE_SIZE));
+  const currentPage = Math.min(Math.max(requestedPage, 1), totalPages);
+  const pagedProducts = displayedProducts.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const pageHref = (n) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (n > 1) params.set('page', n); else params.delete('page');
+    const qs = params.toString();
+    return qs ? `/products?${qs}` : '/products';
+  };
+
+  const pageNumbers = [];
+  for (let n = 1; n <= totalPages; n++) {
+    if (n === 1 || n === totalPages || Math.abs(n - currentPage) <= 1) pageNumbers.push(n);
+    else if (pageNumbers[pageNumbers.length - 1] !== '...') pageNumbers.push('...');
+  }
+
   // Determine Title
   let title = 'All Products';
   if (searchFilter) title = `Search: "${searchFilter}"`;
@@ -47,12 +68,20 @@ function ProductsContent() {
       <div className="container" style={{ paddingBottom: '40px', paddingTop: '40px' }}>
         <h1 className="section-title" style={{ color: 'var(--text-dark)', marginBottom: '30px', textAlign: 'center' }}>{title}</h1>
         <div className="product-grid">
-          {displayedProducts.length > 0 ? displayedProducts.map(product => (
+          {pagedProducts.length > 0 ? pagedProducts.map((product, index) => (
             <div key={product.id} className="product-card">
 
 
-              <Link href={`/product/${product.id}`} style={{ display: 'block', overflow: 'hidden' }}>
-                <img src={product.image} alt={product.name} className="product-img-placeholder" style={{ objectFit: 'cover', transition: 'transform 0.5s ease', display: 'block' }} />
+              <Link href={`/product/${product.id}`} className="product-img-wrap" style={{ display: 'block', overflow: 'hidden' }}>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  sizes="(min-width: 992px) 25vw, 50vw"
+                  priority={index < 4}
+                  className="product-img-placeholder"
+                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                />
               </Link>
               <div className="product-info" style={{ padding: '25px' }}>
                 <Link href={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -72,6 +101,26 @@ function ProductsContent() {
             </div>
           )}
         </div>
+
+        {totalPages > 1 && (
+          <nav className="pagination" aria-label="Product pages">
+            {currentPage > 1 ? (
+              <Link href={pageHref(currentPage - 1)} className="pagination-btn">Prev</Link>
+            ) : (
+              <span className="pagination-btn disabled">Prev</span>
+            )}
+            {pageNumbers.map((n, i) => n === '...' ? (
+              <span key={`gap-${i}`} className="pagination-gap">…</span>
+            ) : (
+              <Link key={n} href={pageHref(n)} className={`pagination-btn${n === currentPage ? ' active' : ''}`} aria-current={n === currentPage ? 'page' : undefined}>{n}</Link>
+            ))}
+            {currentPage < totalPages ? (
+              <Link href={pageHref(currentPage + 1)} className="pagination-btn">Next</Link>
+            ) : (
+              <span className="pagination-btn disabled">Next</span>
+            )}
+          </nav>
+        )}
         
         <div className="subscribe-container-inner" style={{ marginTop: '40px' }}>
           <div className="subscribe-left">

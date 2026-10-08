@@ -35,7 +35,7 @@ export default function CategoriesPage() {
               <p className="category-desc" style={{ marginBottom: '15px', padding: '0 10px', flexGrow: 1, fontSize: '12px', color: '#777', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>{cat.desc}</p>
               <div style={{ padding: '0 15px', marginTop: 'auto' }}>
                 <Link href={`/products?category=${encodeURIComponent(cat.name)}`} style={{ display: 'block', textDecoration: 'none' }}>
-                  <button className="btn btn-outline" style={{ color: 'var(--primary-color)', borderColor: 'var(--primary-color)', borderRadius: '50px', padding: '6px 16px', fontSize: '12px', fontWeight: 'bold', width: '100%', cursor: 'pointer' }}>Browse Category</button>
+                  <button className="btn btn-primary" style={{ border: 'none', borderRadius: '50px', padding: '8px 16px', fontSize: '12px', fontWeight: 'bold', width: '100%', cursor: 'pointer' }}>Browse Category</button>
 
                 </Link>
               </div>
